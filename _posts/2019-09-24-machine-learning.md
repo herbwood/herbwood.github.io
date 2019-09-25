@@ -2,7 +2,7 @@
 layout: post
 title: "machine learning"
 subtitle: "machine learning"
-categories: stduy
+categories: study
 tags: ML
 comments: true
 ---
