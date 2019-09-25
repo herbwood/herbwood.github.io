@@ -5,6 +5,7 @@ subtitle:   "how to linear regression"
 categories: study
 tags: ML
 comments: true
+use_math : true
 ---
 
 # 2. Linear Regression
