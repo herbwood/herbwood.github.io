@@ -27,9 +27,9 @@ use_math : true
 
 ## how?
 ### ```Input``` 
-1)Data{($x_i, y_i$)}, M rows(data) and 1 column(feature)
-2) Model : $h_\theta(x) =\theta_0 + \theta_1x$
-3) Loss function  $J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$ 
+1)Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature)
+2) Model : $$h_\theta(x) =\theta_0 + \theta_1x$$
+3) Loss function  $$J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$$ 
 ### ```step 1.``` initialize parameters $\theta_0, \theta_1$ for Model 
 ### ```step 2.``` find optimal paramters
 ##### 1)  Loss function $J(\theta)$ 계산하기
