@@ -13,7 +13,7 @@ comments: true
 - 예측하고자 하는 target label y에 대한 독립변수 x가 한 개인 회귀 분석 기법
 - y = ax + b 수식으로 표현 가능
 - a는 회귀계수, b는 y 절편을 의미한다. 
-<img src = 'C:\Users\default.DESKTOP-S5Q9GAA\Documents\Programs\isme2n.github.io\assets\img\linalg.png'></img>
+<img src = 'C:\Users\default.DESKTOP-S5Q9GAA\Documents\Programs\herbwood.github.io\assets\img\linalg.png'></img>
 
 ## why?
 - 단순하고 직관적이기 때문에 사용하기 쉬움
