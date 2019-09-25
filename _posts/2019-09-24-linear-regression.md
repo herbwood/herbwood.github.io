@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Linear Regression"
+title:  "[ML-02]Linear Regression"
 subtitle:   "how to linear regression"
 categories: study
-tags: ML
+tags: ml
 comments: true
 use_math : true
 ---
@@ -26,7 +26,7 @@ use_math : true
 - 이상치에 민감함
 
 ## how?
-### Input : 
+### ```Input``` 
 1)Data{($x_i, y_i$)}, M rows(data) and 1 column(feature)
 2) Model : $h_\theta(x) =\theta_0 + \theta_1x$
 3) Loss function  $J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$ 
@@ -60,7 +60,7 @@ y_pred = model.predict(y)
 print(mean_squared_error(y, y_pred))
 ```
 ## Reference 
-[핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)
+[핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)      
 [Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)
 
 

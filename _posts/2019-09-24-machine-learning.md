@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "machine learning"
-subtitle: "machine learning"
+title: "[ML-01]Machine learning"
+subtitle: "what is machine learning"
 categories: study
-tags: ML
+tags: ml
 comments: true
 ---
 
