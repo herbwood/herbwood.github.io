@@ -25,7 +25,7 @@ input data에 대한 output 값을 명시적으로 프로그래밍하지 않아�
 ## how?
 ##### 1) by Model 
 앞서 머신러닝은 기존 input data를 통해 컴퓨터를 학습시킨다고 언급하였다. 구체적으로 컴퓨터를 학습시킨다는 것은 기존 input data를 활용하여 데이터의 패턴을 파악하고 데이터의 패턴을 가장 잘 드러내는 가설인 ***Model***을 생성하는 것을 의미한다. 컴퓨터는 학습 과정을 거친 후 Model에 새로운 input data를 넣어 가장 합리적인 output을 출력하게 된다. 
-<img src = 'C:\Users\default.DESKTOP-S5Q9GAA\Documents\Programs\herbwood.github.io\assets\img\model.png'></img>
+![model](https://user-images.githubusercontent.com/35513025/65589318-cc41ec80-dfc3-11e9-9bc9-f7784b47d09e.png)
 
 ##### 2) by optimization
 그렇다면 어떤 방식으로 데이터의 패턴을 가장 잘 포착한 Model을 만들어낼 수 있을까?   
@@ -48,7 +48,8 @@ input data에 대한 output 값을 명시적으로 프로그래밍하지 않아�
 - Supervised Learning은 다시 label의 종류에 따라 두 가지로 나뉘어진다. label이 continuous value인 경우에는 ***regression(회귀)*** 알고리즘이며, discrete value인 경우에는 ***classification(분류)*** 알고리즘이다. 
 - 각 범주별로 사용되는 알고리즘은 다음과 같다. 
   
-<img src = 'C:\Users\default.DESKTOP-S5Q9GAA\Documents\Programs\herbwood.github.io\assets\img\mlalg2.png'></img>
+![mlalg2](https://user-images.githubusercontent.com/35513025/65589206-a87ea680-dfc3-11e9-97ae-0f9643f10a4c.png)
+
 
 
 
