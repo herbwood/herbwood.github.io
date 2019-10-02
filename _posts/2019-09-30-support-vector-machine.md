@@ -7,8 +7,8 @@ tags: ml
 comments: false
 use_math : true
 ---
-## 5. Support Vector Machine
-## 5.1 Support Vector Machine for Classification
+## 7. Support Vector Machine
+## 7.1 Support Vector Machine for Classification
 
 ### what?
 - 서로 다른 범주에 속하는 데이터를 구분짓는 hyper plane과 support vector(범주 최전방에 속해있는 데이터) 간의 거리를 최대화하는 분류 알고리즘. Large Margin Classifier라고도 불림.
@@ -132,7 +132,7 @@ rbf_kernel_svm_clf = Pipeline([
 rbf_kernel_svm_clf.fit(X, y)
 ```
 
-## 5.2 Support Vector Machine for Regression
+## 7.2 Support Vector Machine for Regression
 
 ### what?
 - 범주를 구분짓는 Hyper plane과 support vector를 지나면서 hyper plane과 평행한 boundary line 사이의 공간에 데이터가 최대한 많이 속하도록 학습시키는 알고리즘
