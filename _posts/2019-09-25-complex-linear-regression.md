@@ -38,14 +38,14 @@ use_math : true
 #### ```step 2.``` find optimal paramters
 ##### 1)  Loss function $$J(\theta)$$ 계산하기
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
-##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
+##### $$temp0:=\theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1:=\theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
 ##### (...)
-##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
-##### $$\theta_0 : = temp0$$
-##### $$\theta_1 : = temp1$$
+##### $$tempn:=\theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0:=temp0$$
+##### $$\theta_1:=temp1$$
 ##### (...)
-##### $$\theta_n : = tempn$$
+##### $$\theta_n:=tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
 #### ```step 3.``` Ouput : optimal $$h_\theta(x)$$
@@ -94,22 +94,22 @@ print(mean_squared_error(y_test, y_pred))
 - 데이터의 개수(m)가 반드시 다항식의 차수보다 커야한다
 
 ### how?
-### Input : 
+### ```Input``` : 
 1)Data{($$x_i, y_i$$)}, M rows(data) and N columns(feature)
-2) Model : $h_\theta(x) = \theta_0 + \theta_1x + \theta_2x^2 +...+ \theta_nx^n$$ 
+2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$
 3) Loss function  $$J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$$ 
 ### ```step 1.``` initialize parameters $$\theta_0, \theta_1, ... , \theta_n$$ for Model (***and add polynominal features if model is linear regression***)
 ### ```step 2.``` find optimal paramters
 ##### 1)  Loss function $$J(\theta)$$ 계산하기
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
-##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
+##### $$temp0:=\theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1:=\theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
 ##### (...)
-##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
-##### $$\theta_0 : = temp0$$
-##### $$\theta_1 : = temp1$$
+##### $$tempn:=\theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0:=temp0$$
+##### $$\theta_1:=temp1$$
 ##### (...)
-##### $$\theta_n : = tempn$$
+##### $$\theta_n:=tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
 ### ```step 3.``` Ouput : optimal $$h_\theta(x)$$
