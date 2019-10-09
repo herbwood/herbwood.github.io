@@ -5,6 +5,7 @@ subtitle:   "how to complex linear regression"
 categories: study
 tags: ml
 comments: true
+use_math : true
 ---
 
 ## 3. 복잡한 Linear Regression
@@ -12,10 +13,10 @@ comments: true
 
 ### what?
 - 예측하고자 하는 target label y에 대한 독립변수 x가 두 개 이상인 회귀 분석 기법
-- $y = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$  
+- $$y = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$  
 - 예시) 집 값 예측을 위한 방 수, 평 수, 위치 등 다양한 변수가 제공된 경우
 
-<img src = 'C:\Users\default.DESKTOP-S5Q9GAA\Documents\Programs\isme2n.github.io\assets\img\multivariate.png'></img>
+![multiregression](https://miro.medium.com/proxy/1*3DwxOlVPr4EtGhU8qFwjXw.png)
 
 
 ### why?
@@ -30,24 +31,24 @@ comments: true
 
 ### how?
 #### ```Input``` 
-1)Data{($x_i, y_i$)}, M rows(data) and N columns(feature)
-2) Model : $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$
-3) Loss function  $J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$ 
-#### ```step 1.``` initialize parameters $\theta_0, \theta_1, ... , \theta_n$ for Model 
+1)Data{($$x_i, y_i$$)}, M rows(data) and N columns(feature)
+2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$
+3) Loss function  $$J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$$ 
+#### ```step 1.``` initialize parameters $$\theta_0, \theta_1, ... , \theta_n$$ for Model 
 #### ```step 2.``` find optimal paramters
-##### 1)  Loss function $J(\theta)$ 계산하기
+##### 1)  Loss function $$J(\theta)$$ 계산하기
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$
-##### $temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$
+##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
 ##### (...)
-##### $tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$
-##### $\theta_0 : = temp0$
-##### $\theta_1 : = temp1$
+##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0 : = temp0$$
+##### $$\theta_1 : = temp1$$
 ##### (...)
-##### $\theta_n : = tempn$
+##### $$\theta_n : = tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
-#### ```step 3.``` Ouput : optimal $h_\theta(x)$
+#### ```step 3.``` Ouput : optimal $$h_\theta(x)$$
 ### code usage
 ```python
 from sklearn.datasets import load_boston
@@ -79,9 +80,9 @@ print(mean_squared_error(y_test, y_pred))
 
 ### what?
 - 예측하고자 하는 target label에 대해 1차 이상의 다항 변수를 활용한 회귀 모델
-- $y = \theta_0 + \theta_1x_1 + \theta_2x_1^2 +...+ \theta_nx_1^n$  
-- 2차 다항 변수를 추가하면 기존 변수 $a,b$ 에 추가로 $a^2, a^3, a^2b, ab^2, b^2, b^3$이 생성된다. 
-<img src = 'C:\Users\default.DESKTOP-S5Q9GAA\Documents\Programs\isme2n.github.io\assets\img\poly.png'></img>
+- $$y = \theta_0 + \theta_1x_1 + \theta_2x_1^2 +...+ \theta_nx_1^n$$  
+- 2차 다항 변수를 추가하면 기존 변수 $$a,b$$ 에 추가로 $$a^2, a^3, a^2b, ab^2, b^2, b^3$$이 생성된다. 
+![polyregression](https://i.stack.imgur.com/OwEeU.png)
 
 ### why?
 - linear regression을 현실 문제에 적용했을 때 나타나는 underfit 문제를 일부 해결
@@ -94,24 +95,24 @@ print(mean_squared_error(y_test, y_pred))
 
 ### how?
 ### Input : 
-1)Data{($x_i, y_i$)}, M rows(data) and N columns(feature)
-2) Model : $h_\theta(x) = \theta_0 + \theta_1x + \theta_2x^2 +...+ \theta_nx^n$  
-3) Loss function  $J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$ 
-### ```step 1.``` initialize parameters $\theta_0, \theta_1, ... , \theta_n$ for Model (***and add polynominal features if model is linear regression***)
+1)Data{($$x_i, y_i$$)}, M rows(data) and N columns(feature)
+2) Model : $h_\theta(x) = \theta_0 + \theta_1x + \theta_2x^2 +...+ \theta_nx^n$$ 
+3) Loss function  $$J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$$ 
+### ```step 1.``` initialize parameters $$\theta_0, \theta_1, ... , \theta_n$$ for Model (***and add polynominal features if model is linear regression***)
 ### ```step 2.``` find optimal paramters
-##### 1)  Loss function $J(\theta)$ 계산하기
+##### 1)  Loss function $$J(\theta)$$ 계산하기
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$
-##### $temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$
+##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
 ##### (...)
-##### $tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$
-##### $\theta_0 : = temp0$
-##### $\theta_1 : = temp1$
+##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0 : = temp0$$
+##### $$\theta_1 : = temp1$$
 ##### (...)
-##### $\theta_n : = tempn$
+##### $$\theta_n : = tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
-### ```step 3.``` Ouput : optimal $h_\theta(x)$
+### ```step 3.``` Ouput : optimal $$h_\theta(x)$$
 ### code usage
 ```python
 import numpy as np
@@ -147,9 +148,9 @@ print(mean_squared_error(y, y_pred))
 ```
 
 ### Refernce
-[핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)
-[Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)
-https://sciencing.com/advantages-disadvantages-multiple-regression-model-12070171.html
-https://gnujoow.github.io/ml/2016/01/27/ML2-Linear-Regression-with-Mutiple-Variables/
-https://towardsdatascience.com/polynomial-regression-bbe8b9d97491
+[핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)  
+[Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)  
+[pros and cons of multivariate regression](https://sciencing.com/advantages-disadvantages-multiple-regression-model-12070171.html)  
+[multivariate regression 설명](https://gnujoow.github.io/ml/2016/01/27/ML2-Linear-Regression-with-Mutiple-Variables/)  
+[polynominal regressino 설명](https://towardsdatascience.com/polynomial-regression-bbe8b9d97491)  
 
