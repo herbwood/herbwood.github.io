@@ -40,11 +40,9 @@ use_math : true
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
 ##### $$temp0:=\theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
 ##### $$temp1:=\theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
-##### (...)
 ##### $$tempn:=\theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
 ##### $$\theta_0:=temp0$$
 ##### $$\theta_1:=temp1$$
-##### (...)
 ##### $$\theta_n:=tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
@@ -104,11 +102,9 @@ print(mean_squared_error(y_test, y_pred))
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
 ##### $$temp0:=\theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
 ##### $$temp1:=\theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
-##### (...)
 ##### $$tempn:=\theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
 ##### $$\theta_0:=temp0$$
 ##### $$\theta_1:=temp1$$
-##### (...)
 ##### $$\theta_n:=tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복

@@ -15,7 +15,7 @@ use_math : true
 - Least Absolute Shrinkage Selector Operator의 줄임말
 - Linear Regression에 overfit을 방지하기 위한 l1 규제항이 추가된 모델
 - 훈련하는 동안에는 규제항이 추가됨(=손실함수에만 추가됨)
-- $J_{lasso}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \lambda\sum_{i=1}^N|\theta_i|$
+- $$J_{lasso}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \lambda\sum_{i=1}^N|\theta_i|$$
   (M = number of datas, N = number of features)
 - 각 feature의 가중치에 대한 규제가 이루어진다. 
 - $$\lambda$$가 크면 클수록 규제가 커져 모델이 단순해지며 $$\lambda$$가 작을수록 규제가 작아져 복잡한 모델이 된다. 
@@ -33,20 +33,18 @@ use_math : true
 ### how?
 #### ```Input```
 1)Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature)  
-2) Model : $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$
+2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$  
 3) Loss function  $$J_{lasso}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \lambda\sum_{i=1}^N|\theta_i|$$   
 4) $$\lambda$$ : Loss function 규제항
 
 #### ```Step 1.``` initialize parameters $$\theta_0, \theta_1$$ for Model 
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$
-##### $temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$
-##### (...)
-##### $tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$
-##### $\theta_0 : = temp0$
-##### $\theta_1 : = temp1$
-##### (...)
-##### $\theta_n : = tempn$
+##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
+##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0 : = temp0$$
+##### $$\theta_1 : = temp1$$
+##### $$\theta_n : = tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
 ### ```step 3.``` ouput   l1 규제가 적용된 $$h_\theta(x)$$
@@ -75,7 +73,7 @@ print(mean_squared_error(y, y_pred))
 ### what?
 - Linear Regression에 overfit을 방지하기 위한 l2 규제항이 추가된 모델
 - 훈련하는 동안에는 규제항이 추가됨(=손실함수에만 추가됨)
-- $J_{ridge}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$
+- $$J_{ridge}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$$
   (M = number of datas, N = number of features)
 - 각 feature의 가중치에 대한 규제가 이루어진다. 
 - $$\lambda$$가 크면 클수록 규제가 커져 모델이 단순해지며 $$\lambda$$가 작을수록 규제가 작아져 복잡한 모델이 된다. 
@@ -95,20 +93,18 @@ print(mean_squared_error(y, y_pred))
 ### how?
 #### ```Input```
 1)Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature)  
-2) Model : $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$
-3) Loss function  $J_{ridge}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$
+2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$  
+3) Loss function  $$J_{ridge}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M   (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$$  
 4) $$\lambda$$ : Loss function 규제항
 
 #### ```Step 1.``` initialize parameters $$\theta_0, \theta_1$$ for Model 
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$
-##### $temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$
-##### (...)
-##### $tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$
-##### $\theta_0 : = temp0$
-##### $\theta_1 : = temp1$
-##### (...)
-##### $\theta_n : = tempn$
+##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
+##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0 : = temp0$$
+##### $$\theta_1 : = temp1$$
+##### $$\theta_n : = tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
 ### ```step 3.``` ouput   l2 규제가 적용된 $$h_\theta(x)$$
@@ -136,7 +132,7 @@ print(mean_squared_error(y, y_pred))
 
 ### what?
 - lasso regressio과 ridge regression이 결합된 형태이다. 
--  $J_{elasticnet}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \gamma\lambda\sum_{i=1}^N|\theta_i| + \frac {1-\gamma} 2\lambda \sum_{i=1}^N\theta_i^2$
+-  $$J_{elasticnet}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \gamma\lambda\sum_{i=1}^N|\theta_i| + \frac {1-\gamma} 2\lambda \sum_{i=1}^N\theta_i^2$$
 - $$\gamma$$ 파라미터를 통해 l1 규제와 l2 규제를 조정할 수 있다. 
 - $$\gamma = 0$$, -> elasticnet = ridge, $$\gamma = 1$$, -> elasticnet = ridge
 
@@ -151,21 +147,19 @@ print(mean_squared_error(y, y_pred))
 ### how?
 #### ```Input```
 1)Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature)  
-2) Model : $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$
-3) Loss function  $J_{elasticnet}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \gamma\lambda\sum_{i=1}^N|\theta_i| + \frac {1-\gamma} 2\lambda \sum_{i=1}^N\theta_i^2$ (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$
+2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$
+3) Loss function  $$J_{elasticnet}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \gamma\lambda\sum_{i=1}^N|\theta_i| + \frac {1-\gamma} 2\lambda \sum_{i=1}^N\theta_i^2$ (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$$
 4) $$\lambda$$ : Loss function 규제항
 5) $$\gamma$$ : l1과 l2 규제항 조정 파라미터
 
 #### ```Step 1.``` initialize parameters $$\theta_0, \theta_1$$ for Model 
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$
-##### $temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$
-##### (...)
-##### $tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$
-##### $\theta_0 : = temp0$
-##### $\theta_1 : = temp1$
-##### (...)
-##### $\theta_n : = tempn$
+##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
+##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
+##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$\theta_0 : = temp0$$
+##### $$\theta_1 : = temp1$$
+##### $$\theta_n : = tempn$$
 ##### 3) update된 parameter를 토대로 Loss function 계산
 ##### 4) Loss function이 최소가 될 때까지 step2의 과정 반복
 ### ```step 3.``` ouput   l1, l2 규제가 적용된 $$h_\theta(x)$$
@@ -190,9 +184,9 @@ print(mean_squared_error(y, y_pred))
 ```
 
 ### Reference
-[lasso, ridge elasticnet 설명](https://brunch.co.kr/@itschloe1/11)
-[lasso regression의 장단점 설명](https://www.quora.com/What-are-the-pros-and-cons-of-lasso-regression)
-[lasso regression과 elasticnet 비교 코드](https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_and_elasticnet.html#sphx-glr-auto-examples-linear-model-plot-lasso-and-elasticnet-py)
-[ridge regression 장단점 설명](https://stepupanalytics.com/ridge-regression-and-its-application/)
-[elasticnet 장단점](https://stats.stackexchange.com/questions/345343/any-disadvantages-of-elastic-net-over-lasso)
+[lasso, ridge elasticnet 설명](https://brunch.co.kr/@itschloe1/11)  
+[lasso regression의 장단점 설명](https://www.quora.com/What-are-the-pros-and-cons-of-lasso-regression)  
+[lasso regression과 elasticnet 비교 코드](https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_and_elasticnet.html#sphx-glr-auto-examples-linear-model-plot-lasso-and-elasticnet-py)  
+[ridge regression 장단점 설명](https://stepupanalytics.com/ridge-regression-and-its-application/)  
+[elasticnet 장단점](https://stats.stackexchange.com/questions/345343/any-disadvantages-of-elastic-net-over-lasso)  
 [핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)      
