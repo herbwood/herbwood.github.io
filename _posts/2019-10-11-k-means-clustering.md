@@ -29,12 +29,12 @@ use_math : true
 1) Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature)  
 2) k : 클러스터의 수   
 #### ```step 1.``` k개의 centroid(클러스터의 중심)를 sample에서 임의로 추출하여 초깃값을 설정한다
-- $\mu_i$ : $$i$$번째 centroid의 위치
+- $$\mu_i$$ : $$i$$번째 centroid의 위치
 
 #### ```step 2.``` EM algorithm
-1) Expectation step : 각 데이터 오브젝트들에 대해 k 개의 클러스터 중심과의 거리를 구하고, centroid와의 거리를 기반으로 데이터에 클러스터를 할당한다. 
-2) Maximization step : Expectation step에서 할당된 데이터를 기준으로 centroid를 다시 계산한다.
-3) 각 데이터의 소속 클러스터가 바뀌지 않을 때 까지 2, 3 과정을 반복한다.
+1) Expectation step : 각 데이터 오브젝트들에 대해 k 개의 클러스터 중심과의 거리를 구하고, centroid와의 거리를 기반으로 데이터에 클러스터를 할당한다.   
+2) Maximization step : Expectation step에서 할당된 데이터를 기준으로 centroid를 다시 계산한다.  
+3) 각 데이터의 소속 클러스터가 바뀌지 않을 때 까지 2, 3 과정을 반복한다.  
 #### ```step 3.``` 데이터에 할당된 k개의 클러스터
 
 
