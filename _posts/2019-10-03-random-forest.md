@@ -13,7 +13,7 @@ use_math : true
 ### what?
 - 훈련 과정에서 구성한 다수의 결정 트리로부터 부류(분류) 또는 평균 예측치(회귀 분석)를 출력
 - regression과 classification 모두 사용 가능
-- Bagging을 통해 데이터를 복원 추출하는 방식을 사용하는 동시에 Random Subspace를 통해 feature를 랜덤하게 추출하여 사용한다. 이렇게 추출된 데이터와 특징을 기반으로 결정 트리를 만들고, 여러 결정 트리의 예측치를 종합함으로써 결과를 내는 방식으로 동작한다. 즉 ***Random Forest = Bagging + Random Subspace + Decision Tree***
+- Bagging을 통해 데이터를 복원 추출하는 방식을 사용하는 동시에 Random Subspace를 통해 feature를 랜덤하게 추출하여 사용한다. 이렇게 추출된 데이터와 특징을 기반으로 결정 트리를 만들고, 여러 결정 트리의 예측치를 종합함으로써 결과를 내는 방식으로 동작한다. 즉   ***Random Forest = Bagging + Random Subspace + Decision Tree***  
 ![Cap 2019-10-03 07-50-32-739](https://user-images.githubusercontent.com/35513025/66087475-8df39100-e5b2-11e9-8e30-b409e3f52f61.jpg)
 
 - 결정 트리는 학습데이터에 따라 생성되는 결정트리가 매우 달라지기 때문에 일반화하여 사용하는데 어려움이 있다. 또한 계층적 접근 방식이기 때문에 중간의 에러를 다음 단계로 전파하는 문제가 있다. 하지만 Random Forest에서는 이러한 문제를 데이터와 특성을 sampling 하는 방식을 통해 해결하였다. 
@@ -34,12 +34,12 @@ use_math : true
 
 ### how?
 #### ```Input``` 
-1) Data{($x_i, y_i$)}, M rows(data) and N columns(feature)  
+1) Data$${(x_i, y_i$)}$$, M rows(data) and N columns(feature)  
 2) n_estimators, max_depth 등등 트리의 크기 결정 파라미터
 #### ```Step 1``` bagging과 random supspace를 통한 데이터와 feature 추출
 #### ```Step 2```
-1) n_estimaotors만큼의 결정 트리 생성 후 학습
-2) voting을 통한 예측치 결정 트리의 예측치 취합
+1) n_estimaotors만큼의 결정 트리 생성 후 학습  
+2) voting을 통한 예측치 결정 트리의 예측치 취합  
 #### ```Step 3``` output : predictions on new instance
 
 ### Code usage

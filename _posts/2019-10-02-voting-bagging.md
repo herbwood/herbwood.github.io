@@ -26,7 +26,7 @@ use_math : true
 
 ### how?
 #### ```Input```
-1) Data{($x_i, y_i$)}, M rows(data) and N columns(feature)  
+1) Data$${(x_i, y_i)}$$, M rows(data) and N columns(feature)  
 2) Algorithms to use
 #### ```Step 1``` voting에 사용할 알고리즘을 각각 훈련시키기
 #### ```Step 2``` voting 방법에 따라 결과 종합하기
@@ -71,15 +71,15 @@ voting_clf.fit(X_train, y_train)
 2) OOB(Out Of Bag)
 - Bagging 알고리즘은 복원 추출 방식이기 때문에, 어떤 데이터는 학습에 여러 번 사용되는 반면, 어떤 데이터는 학습에 전혀 사용되지 않는다.
 - m개의 샘플에서 하나의 샘플을 추출한다고 했을 때 특정 샘플이 추출되지 않을 확률은
-$(1- \frac 1 m)$이며 이를 m번 추출한다고 했을 때 확률 $(1- \frac 1 m) ^ m$은 0.37에 수렴한다. 즉 37%의 데이터는 학습에 사용되지 않는다.
+$$(1- \frac 1 m)$$이며 이를 m번 추출한다고 했을 때 확률 $$(1- \frac 1 m) ^ m$$은 0.37에 수렴한다. 즉 37%의 데이터는 학습에 사용되지 않는다.
 - oob_score 하이퍼 파라미터 지정을 통해 사용되지 않은 데이터를 validation용 데이터를 사용할 수 있도록 설정할 수 있다. 
 
 3) Random Patch and Random Subspace
 - 특성과 데이터에 대한 sampling 여부를 결정하는 방식
-- Random Patch : 특성 및 데이터 모두 복원 추출하는 방식
-***bootstrap = True, bootstrap_features = True***
-- Random Subspace : 특성에 대해서만 복원 추출을 적용하고 데이터는 전체 다 사용하는 비복원추출 방식을 사용함
-***bootstrap = False, bootstrap_features = True*** 
+- Random Patch : 특성 및 데이터 모두 복원 추출하는 방식  
+***bootstrap = True, bootstrap_features = True***  
+- Random Subspace : 특성에 대해서만 복원 추출을 적용하고 데이터는 전체 다 사용하는 비복원추출 방식을 사용함  
+***bootstrap = False, bootstrap_features = True***   
 
 ### why?
 - 단일 모델을 사용해 학습하는 경우보다 편향은 비슷하지만 분산이 줄어든다. 
@@ -89,7 +89,7 @@ $(1- \frac 1 m)$이며 이를 m번 추출한다고 했을 때 확률 $(1- \frac 
 
 ### how?
 #### ```Input```
-1) Data{($x_i, y_i$)}, M rows(data) and N columns(feature)  
+1) Data$${(x_i, y_i)}$$, M rows(data) and N columns(feature)  
 2) Algorithms to use
 3) Boostrap methods 
 #### ```Step 1``` 데이터 및 feature 샘플링
@@ -112,8 +112,8 @@ y_pred = bag_clf.predict(X_test)
 ```
 ### Reference 
 [핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)      	
-[voting classifier 이미지](http://coursepress.lnu.se/kurs/applied-machine-learning/files/2018/09/8.Ensemble-Learning1.pdf)  
-[앙상블 모델 설명](https://excelsior-cjh.tistory.com/166)
+[voting classifier 이미지](http://coursepress.lnu.se/kurs/applied-machine-learning/files/2018/09/8.Ensemble-Learning1.pdf)   
+[앙상블 모델 설명](https://excelsior-cjh.tistory.com/166)    
 
 
 
