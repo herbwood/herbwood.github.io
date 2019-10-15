@@ -67,11 +67,11 @@ p(-) : target label에 속하지 않는 데이터의 비율
 
 ### how?
 #### ```Input``` 
-1) Data$${(x_i, y_i)}$$, M rows(data) and N columns(feature)
-2) $$\alpha$$ : L(T)를 반영하는 정도(0.01~0.1 사이의 값 사용)
-3) Loss function : $$CC(T) = Err(T) + \alpha * L(T)$$
-4) max_leaf_node : terminal node의 수를 정하여 pruning 작업의 정도를 결정함
-5) 불순도 계산 알고리즘 
+1) Data$${(x_i, y_i)}$$, M rows(data) and N columns(feature)  
+2) $$\alpha$$ : L(T)를 반영하는 정도(0.01~0.1 사이의 값 사용)  
+3) Loss function : $$CC(T) = Err(T) + \alpha * L(T)$$  
+4) max_leaf_node : terminal node의 수를 정하여 pruning 작업의 정도를 결정함  
+5) 불순도 계산 알고리즘   
 #### ```Step 1``` 모든 feature에 대한 불순도 계산 후 불순도가 가장 낮은 순으로 분기
 #### ```Step 2``` 적절한 pruning 작업 실행
 #### ```Step 3``` output : optimal Tree
