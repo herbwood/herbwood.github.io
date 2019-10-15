@@ -53,6 +53,6 @@ Kaggle을 처음으로 공부할 때 참고한 블로그입니다. 처음 공부
 
 
 ## 사이드프로젝트
-[Fittingroomanywhere](https://github.com/starbucksdolcelatte/FittingroomAnywhere)  
+[Fittingroomanywhere](https://github.com/herbwood/FittingroomAnywhere)  
 사용자가 착용하기를 희망하는 의류를 가상으로 시착용한 모습을 보여주는 컴퓨터 비전 인공지능 프로젝트입니다. 구현을 위해 GAN모델과 Mask-RCNN 모델을 사용하였습니다. 
 
