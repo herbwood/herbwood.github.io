@@ -38,17 +38,18 @@ $$F_0(x) = \underset \gamma {argmin} \sum_{i=1}^nL(y_i, \gamma)$$
 
 #### ```Step 2``` for m = 1 to M(tree number 1 to M)
 1) Compute $$r_{im} = - [\frac {\partial L(y_i, F(x_i))} {\partial F(x_i)}]_{F(x)=F_{m-1}(x)}$$ for i = 1,...,n
-- $r_{im}$ 계산 결과 $$(y_i - \hat(y_i))$$라는 residual이 나온다. 이를 pseudo residual이라고 한다. 
+- $$r_{im}$$ 계산 결과 $$(y_i - \hat(y_i))$$라는 residual이 나온다. 이를 pseudo residual이라고 한다. 
 - 모든 샘플에 대하여 residual을 구한다.
 - denote
-$r$ : residual  
-$i$ : sample number  
-$n$ : max sample number
-$m$ : tree index
+$$r$$ : residual  
+$$i$$ : sample number  
+$$n$$ : max sample number
+$$m$$ : tree index
 
-2) Fit a regression tree to the $r_{im}$ values and create terminal regions $$R_{jm}$$, for j = 1,...,$J_m$  
+2) Fit a regression tree to the $$r_{im}$$ values and create terminal regions $$R_{jm}$$, for j = 1,...,$$J_m$$  
 - target label이 아닌 residual을 예측하기 위한 결정 트리를 만든다.  
-- denote
+- denote  
+
 $$j$$ : leaf node index  
 $$R_{jm}$$ : m번째 트리의 j번째 leaf node
 
