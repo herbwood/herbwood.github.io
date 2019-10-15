@@ -39,9 +39,9 @@ use_math : true
 
 #### ```Step 1.``` initialize parameters $$\theta_0, \theta_1$$ for Model 
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
-##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
-##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$temp0:=\theta_0 - \alpha  \frac {\partial J(\theta)} {\partial \theta_0}$$
+##### $$temp1:=\theta_1 - \alpha  \frac {\partial J(\theta)} {\partial \theta_1}$$
+##### $$tempn:=\theta_n - \alpha  \frac {\partial J(\theta)} {\partial \theta_n}$$
 ##### $$\theta_0 : = temp0$$
 ##### $$\theta_1 : = temp1$$
 ##### $$\theta_n : = tempn$$
@@ -99,9 +99,9 @@ print(mean_squared_error(y, y_pred))
 
 #### ```Step 1.``` initialize parameters $$\theta_0, \theta_1$$ for Model 
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
-##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
-##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$temp0:=\theta_0 - \alpha  \frac {\partial J(\theta)} {\partial \theta_0}$$
+##### $$temp1:=\theta_1 - \alpha  \frac {\partial J(\theta)} {\partial \theta_1}$$
+##### $$tempn:=\theta_n - \alpha  \frac {\partial J(\theta)} {\partial \theta_n}$$
 ##### $$\theta_0 : = temp0$$
 ##### $$\theta_1 : = temp1$$
 ##### $$\theta_n : = tempn$$
@@ -147,16 +147,19 @@ print(mean_squared_error(y, y_pred))
 ### how?
 #### ```Input```
 1)Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature)  
-2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$
-3) Loss function  $$J_{elasticnet}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M (h_\theta(x)_i - y_i)^2 + \gamma\lambda\sum_{i=1}^N|\theta_i| + \frac {1-\gamma} 2\lambda \sum_{i=1}^N\theta_i^2$ (h_\theta(x)_i - y_i)^2 + \frac \lambda 2\sum_{i=1}^N\theta_i^2$$
-4) $$\lambda$$ : Loss function 규제항
-5) $$\gamma$$ : l1과 l2 규제항 조정 파라미터
+2) Model : $$h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 +...+ \theta_nx_n$$  
+3) Loss function  
+$$J_{elasticnet}(\theta) = {\frac 1 {2m}} \sum_{i=1}^M(h_\theta(x_i) - y_i)^2+ \gamma\lambda\sum_{i=1}^N|\theta_i| + \frac {1-\gamma} 2\lambda \sum_{i=1}^N\theta_i^2$$
+
+4) $$\lambda$$ : Loss function 규제항    
+5) $$\gamma$$ : l1과 l2 규제항 조정 파라미터    
+
 
 #### ```Step 1.``` initialize parameters $$\theta_0, \theta_1$$ for Model 
 ##### 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
-##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
-##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
-##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
+##### $$temp0:=\theta_0 - \alpha  \frac {\partial J(\theta)} {\partial \theta_0}$$
+##### $$temp1:=\theta_1 - \alpha  \frac {\partial J(\theta)} {\partial \theta_1}$$
+##### $$tempn:=\theta_n - \alpha  \frac {\partial J(\theta)} {\partial \theta_n}$$
 ##### $$\theta_0 : = temp0$$
 ##### $$\theta_1 : = temp1$$
 ##### $$\theta_n : = tempn$$

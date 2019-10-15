@@ -12,9 +12,9 @@ use_math : true
 
 ### what?
 - 베이즈 이론을 토대로 데이터를 분류하는 알고리즘. 
-- Bayesian Theorem 
-  $$P(A|B) = \frac {P(B \cap A)} {P(B)} = \frac {P(B|A)P(A)} {\sum {P(B|A)P(A)}}$$
-- $$P(1|x) = x가 범주 1에 속할 확률, P(0|x) = x가 범주 0에 속할 확률$$로 이해하면 쉬움
+- Bayesian Theorem
+$$P(A|B) = \frac {P(B \cap A)} {P(B)} = \frac {P(B|A)P(A)} {\sum {P(B|A)P(A)}}$$
+($$P(1|x) = x$$가 범주 1에 속할 확률, $$P(0|x) = x$$가 범주 0에 속할 확률로 이해하면 쉬움)
 - 분모가 0이 되는 경우를 방지하기 위해 상수 k를 더해주는 smoothing 기법을 도입한다. 
 - 각 범주에 속할 확률을 구한 후 가장 확률이 높은 범주로 분류하는 방식
 
@@ -63,8 +63,8 @@ print("Number of mislabeled points out of a total %d points : %d"
 ```
 ## Reference 
 [핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)      
-[Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)
-[Naive Bayes 예시](https://gomguard.tistory.com/69)
-[Naive Bayes 장단점](http://w3devlabs.net/wp/?p=17273)
+[Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)    
+[Naive Bayes 예시](https://gomguard.tistory.com/69)    
+[Naive Bayes 장단점](http://w3devlabs.net/wp/?p=17273)    
 
 

@@ -15,10 +15,10 @@ use_math : true
 - 회귀 방정식을 통해 데이터를 분류하는 모델
 - categorical 변수의 경우 연속형 변수와 달리 중간값을 가지지 않으므로 일반적인 linear regression과 다른 접근법이 필요하다.
 - regression 모델을 0~1 사이의 값을 가지도록 변형하면 logistic function과 같은 형태가 된다. 
-<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png></img>
-- $$h_\theta(x) = \frac 1 {1+e^{-\theta^Tx}}$$
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png">
+- $$h_\theta(x) = \frac 1 {1+e^{-\theta^Tx}}$$, 
   $$(\theta^Tx) = \theta + \theta_1x_1 + ... + \theta_nx_n$$으로 regression 모델이다. 
-<img src="https://machinelearningblogcom.files.wordpress.com/2018/04/bildschirmfoto-2018-04-23-um-12-05-381.png?w=1400"></img>
+<img src="https://machinelearningblogcom.files.wordpress.com/2018/04/bildschirmfoto-2018-04-23-um-12-05-381.png?w=1400">
 - 여기서 regression 모델은 데이터를 구분짓는 decision boundary를 형성한다. 
 - logistic regression은 항상 0과 1 사이의 확률값을 반환한다. 
 - $$\theta^Tx \ge 0$$ means $$h_\theta(x) \ge 0.5$$ ==> y = 1
@@ -40,13 +40,13 @@ use_math : true
 
 ### how?
 #### ```Input``` 
-1)Data{($x_i, y_i$)}, M rows(data) and 1 column(feature)    
-2) Model : $$J(\theta)_{logistic} = \frac 1 m {\sum_{i=1}^M((y_ilog(h_\theta(x_i))) + (1-y_i)log(1-h_\theta(x_i)))}$$ 
+1)Data$${(x_i, y_i)}$$, M rows(data) and 1 column(feature)    
+2) Model : $$J(\theta)_{logistic} = \frac 1 m {\sum_{i=1}^M((y_ilog(h_\theta(x_i))) + (1-y_i)log(1-h_\theta(x_i)))}$$   
 3) Loss function  $$J(\theta) = {\frac 1 M}\sum_{i=1}^M (y_i - \hat{y_i})^2$$   
 #### ```step 1.``` initialize parameters $$\theta$$ for Model 
 #### ```step 2.``` find optimal paramters
-##### 1) gradient descent를 통해 파라미터 $\theta$에 대해서 최적의 값을 찾는다. 
-##### 2) $\theta$ 값을 logistic regression 모델에 적용하여 확률값을 찾는다. 
+##### 1) gradient descent를 통해 파라미터 $$\theta$$에 대해서 최적의 값을 찾는다. 
+##### 2) $$\theta$$ 값을 logistic regression 모델에 적용하여 확률값을 찾는다. 
 ##### 3) 확률값에 따른 범주 $$\hat{y_i}$$ 를 얻는다. 이진분류의 경우 $$h_\theta(x) \ge 1/2$$ 이면 $$\hat{y_i} = 1$$, $$h_\theta(x) < 1/2$$ 이면 
 ### ```step 3.``` ouput : 데이터에 대한 예측 범주 $$\hat{y_i}$$
 
@@ -82,24 +82,24 @@ y_pred = log_reg.predict(X_new)  # 예측 범주
 
 ## 5.2 Softmax Regression
 
-###what?
+### what?
 - 다중 분류를 위해 사용되는 알고리즘으로 logistic regression을 결합한 결과와 같다. 
 - regression을 통해 얻어진 각 data에 대한 수치를 softmax function을 통해 확률값으로 sclaing해준다. 
-<img src = "https://t1.daumcdn.net/cfile/tistory/266B8144592683AC02"></img>
+<img src = "https://t1.daumcdn.net/cfile/tistory/266B8144592683AC02">
 - softmax function $S(y_i) = {exp(y_i)}/{\sum_{i=1}^{M}(exp(y_i))}$$
 - loss function으로는 cross-entropy를 사용한다. 예측한 범주와 실제 범주값의 차이를 토대로 잘못 예측한 경우 penalty를 주는 방식으로 logistic regression의 loss function과 유사하다. 
 - Loss function $$J(\theta)_{softmax} = \frac 1 m {\sum_{i=1}^M(y_i) * -log(S(y_i))}$$
 
-###why?
+### why?
 - logistic regression과 동일
 
-###why not?
+### why not?
 - logistic regression과 동일
 
 ### how?
 #### ```Input``` 
 1)Data{($$x_i, y_i$$)}, M rows(data) and 1 column(feature), K categories
-2) Model : $$J(\theta)_{logistic} = \frac 1 m {\sum_{i=1}^M((y_ilog(h_\theta(x_i))) + (1-y_i)log(1-h_\theta(x_i)))}$$ 
+2) Model : $$J(\theta)_{logistic} = \frac 1 m {\sum_{i=1}^M((y_ilog(h_\theta(x_i))) + (1-y_i)log(1-h_\theta(x_i)))}$$   
 3) Loss function  $$J(\theta)_{softmax} = \frac 1 m {\sum_{i=1}^M(y_i) * -log(S(y_i))}$$  
 #### ```step 1.``` initialize parameters $$\theta$$ for Model 
 #### ```step 2.``` 
@@ -108,7 +108,7 @@ y_pred = log_reg.predict(X_new)  # 예측 범주
 ##### 3) cross-entropy loss function을 토대로 gradient descent를 진행하여 데이터에 대한 예측 범주 $$\hat{y_i}$$를 얻는다. 
 ### ```step 3.``` ouput : 데이터에 대한 예측 범주 $$\hat{y_i}$$
 
-###code usage
+### code usage
 ```python
 from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import load_iris

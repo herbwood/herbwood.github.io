@@ -37,16 +37,16 @@ support vecotr machine : CA + B(C=$$\frac 1 {\lambda}$$)
 3) Non-linear classification
 
 3-1) polynominal features를 더해줌으로써 가능
-ex) $$x_1$ -> $x_1^2 + 2$$
+ex) $$x_1$ -> $$x_1^2 + 2$$
 
 3-2) similarity(유사도) 추가
 - 각 데이터를 랜드마크로 지정해 랜드마크와 데이터 사이의 거리를 feature로 추가하는 방식
 - $$l$$ = landmark, $$f_1$$ = similarity($$x, l$$)
-- similarity를 정하는 방식에는 여러 가지가 있다. 그 중 ```Gaussian kernel```은 다음과 같다. 
+- similarity를 정하는 방식에는 여러 가지가 있다. 그 중 ```Gaussian kernel```은 다음과 같다.   
 Gaussian kernel = $$exp(\frac {-||x - l||^2} {2\sigma^2})$$
-if $x \approx l$ : $$exp(\frac {-0} {2\sigma^2}) = 1$$
-else $$exp(\frac {-large} {2\sigma^2})$$
-- $$\theta_0 + \theta_1x_1 + ... + \theta_nx_n$ -> $\theta_0 + \theta_1f_1 + ... + \theta_nf_n$$
+(if $$x \approx l$$ : $$exp(\frac {-0} {2\sigma^2}) = 1$$,
+else $$exp(\frac {-large} {2\sigma^2})$$)  
+$$\theta_0 + \theta_1x_1 + ... + \theta_nx_n$ -> $\theta_0 + \theta_1f_1 + ... + \theta_nf_n$$
 
 ### why?
 - non-linear 한 데이터 분류가 가능하다. 
@@ -70,11 +70,9 @@ else $$exp(\frac {-large} {2\sigma^2})$$
 - 2) Gradient Descent 방법으로 parameter 최적화 하기(순서 주의!!)
 ##### $$temp0 : = \theta_0 - \alpha$ $\partial J(\theta)\over\partial \theta_0$$
 ##### $$temp1 : = \theta_1 - \alpha$ $\partial J(\theta)\over\partial \theta_1$$
-##### (...)
 ##### $$tempn : = \theta_n - \alpha$ $\partial J(\theta)\over\partial \theta_n$$
 ##### $$\theta_0 : = temp0$$
 ##### $$\theta_1 : = temp1$$
-##### (...)
 ##### $$\theta_n : = tempn$$
 - 3) update된 parameter를 토대로 Loss function 계산
 - 4) Loss function이 최소가 될 때까지 step2의 과정 반복
@@ -164,19 +162,19 @@ svm_poly_reg.fit(X, y)
 
 ### Tips
 #### Support Vector Machine Parameters
-|parameter|의미| higher|lower|
-|---------|---|-------|------|
+|parameter|의미|higher|lower|  
+|:---------:|:---:|:-------:|:------:|  
 |C|얼마나 많은 샘플이 다른 범주에 놓일지 결정|이상치 가능성을 높게 봄, 높으면 underfit, hard margin|이상치 가능성을 낮게 봄, 낮으면 overfit, soft margin|
 |gamma|하나의 데이터 샘플의 영향력을 결정|작은 표준편차, 영향력 거리가 작음, underfit|큰 표준편차, 영향력 거리가 큼, overrfit|
-|epsilon|마진 안에 얼마나 많은 샘플이 들어올지 결정|샘플이 마진 안에 들어올 수 있는 범위가 넓어짐, underfit|샘플이 마진 안에 들어올 수 있는 범위가 좁아짐, overfit|s
+|epsilon|마진 안에 얼마나 많은 샘플이 들어올지 결정|샘플이 마진 안에 들어올 수 있는 범위가 넓어짐, underfit|샘플이 마진 안에 들어올 수 있는 범위가 좁아짐, overfit|
 
 
 
 
 ### Reference 
 [핸즈온 머신러닝](https://github.com/rickiepark/handson-ml)      
-[Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)
-[Support Vector Machine 장단점](https://data-flair.training/blogs/svm-support-vector-machine-tutorial/)
-[Support Vector Machine for Regression 설명](https://medium.com/coinmonks/support-vector-regression-or-svr-8eb3acf6d0ff)
+[Coursera : Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning/home/welcome)  
+[Support Vector Machine 장단점](https://data-flair.training/blogs/svm-support-vector-machine-tutorial/)  
+[Support Vector Machine for Regression 설명](https://medium.com/coinmonks/support-vector-regression-or-svr-8eb3acf6d0ff)  
 
 
