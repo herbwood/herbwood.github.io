@@ -3,7 +3,7 @@ layout: post
 title:  "[Project] Pytorch로 정확도 87% 이상의 LEGO classifier 만들기"
 subtitle:   "making lego classifer"
 categories: study
-tags: dl
+tags: project
 comments: true
 use_math : true
 ---
