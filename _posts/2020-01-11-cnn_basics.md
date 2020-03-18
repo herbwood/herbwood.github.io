@@ -46,5 +46,5 @@ GoogLeNet은 신경망을 단순히 깊게 쌓은 것이 아니라 단일한 입
   
   
 #### Reference
-[cs231n youtube 강의](https://www.youtube.com/playlist?list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq)
-[CNN 알고리즘들](https://bskyvision.com/539?category=635506)
+[cs231n youtube 강의](https://www.youtube.com/playlist?list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq)  
+[CNN 알고리즘들](https://bskyvision.com/539?category=635506)  
