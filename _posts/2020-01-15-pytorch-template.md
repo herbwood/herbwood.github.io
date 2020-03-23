@@ -14,6 +14,7 @@ use_math : true
 
 프로젝트 전체 구조는 다음과 같습니다.   
 
+```bash
 pytorch-template/
     │
     ├── train.py - main script to start training
@@ -54,6 +55,7 @@ pytorch-template/
     └── utils/ - small utility functions
         ├── util.py
         └── ...
+```
 
 ## base
 data_loader, model, trainer의 **추상 클래스** 모듈입니다. 추상 클래스를 생성하지 않고 각각의 파일에 직접 클래스를 작성하는 경우도 있었습니다. 하지만 본 template는 하나의 파일에 클래스를 작성 시 코드가 지나치게 길어져 가독성이 떨어지는 것을 방지하고자 별도의 추상 클래스 모듈을 생성해준 것 같습니다.   
