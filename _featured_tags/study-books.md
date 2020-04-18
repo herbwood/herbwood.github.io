@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: Books
-slug: Books
+slug: books
 category: study
 menu: false
 order: 1
