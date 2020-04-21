@@ -8,7 +8,7 @@ comments: true
 use_math : true
 ---
 
-딥러닝 관련 github repository를 살펴보면 파일과 디렉터리가 특정 형식에 맞게 정리된 모습을 확인할 수 있습니다. 처음에는 이러한 구조를 이해하는 데 어려움이 있었지만 이후에 딥러닝 프로젝트들이 template에 맞게 저장되어 있음을 알게 되었습니다. 딥러닝 프로젝트 github 저장소를 보다 잘 이해하고, 직접 프로젝트를 구성할 때 참고하기 위해 딥러닝 프로젝트 template을 정리해보았습니다. Template 분석을 위해 [pytorch-template](https://github.com/victoresque/pytorch-template) github 저장소를 참고했습니다. 
+&nbsp;&nbsp;&nbsp;&nbsp;딥러닝 관련 github repository를 살펴보면 파일과 디렉터리가 특정 형식에 맞게 정리된 모습을 확인할 수 있습니다. 처음에는 이러한 구조를 이해하는 데 어려움이 있었지만 이후에 딥러닝 프로젝트들이 **template**에 맞게 저장되어 있음을 알게 되었습니다. 딥러닝 프로젝트 github 저장소를 보다 잘 이해하고, 직접 프로젝트를 구성할 때 참고하기 위해 딥러닝 프로젝트 template을 정리해보았습니다. Template 분석을 위해 [pytorch-template](https://github.com/victoresque/pytorch-template) github 저장소를 참고했습니다. 
 
 ![Cap 2020-03-23 10-42-32-035](https://user-images.githubusercontent.com/35513025/77271961-5fe64280-6cf3-11ea-91ca-3c2177c2095d.jpg)
 
@@ -83,32 +83,32 @@ data_loader, model, trainer의 **추상 클래스** 모듈입니다. 추상 클�
 base_data_loder를 상속받아 실제 데이터를 load하는 모듈입니다.  
 
 **data_loader.py** 
-- 데이터가 저장된 디렉터리, batch size 등을 지정하고 torchvision 메서드인 transform을 통해 data augmentation을 진행할 수 있습니다.   
+데이터가 저장된 디렉터리, batch size 등을 지정하고 torchvision 메서드인 transform을 통해 data augmentation을 진행할 수 있습니다.   
 
 
 ## logger  
 logging과 tensorboard 시각화를 위한 기능을 제공하는 모듈입니다.  
 
 **logger_config.json**
-- logger에 대한 정보가 저장된 json 파일입니다.   
+logger에 대한 정보가 저장된 json 파일입니다.   
 
 **logger.py**
-- logger_config.json에 저장된 logger에 대한 정보를 읽어들여 load시킵니다.   
+logger_config.json에 저장된 logger에 대한 정보를 읽어들여 load시킵니다.   
 
 **visualization.py**
-- tensorboard를 통해 train 결과를 시각화하는 기능을 제공합니다. 
+tensorboard를 통해 train 결과를 시각화하는 기능을 제공합니다. 
 
 ## model  
 train, evaluation 시 필요한 loss function, metric, model을 지정하는 모듈입니다.  
 
 **loss.py**
-- torch.nn.functional에서 제공하는 메서드를 사용하거나 custom한 loss function을 지정할 수도 있습니다. 
+torch.nn.functional에서 제공하는 메서드를 사용하거나 custom한 loss function을 지정할 수도 있습니다. 
 
 **metric.py** 
-- 모델 성능 평가 시 사용할 metric을 지정합니다. 본 template에서는 accuracy와 top_k_acc를 metric으로 설정했습니다. 
+모델 성능 평가 시 사용할 metric을 지정합니다. 본 template에서는 accuracy와 top_k_acc를 metric으로 설정했습니다. 
 
 **model.py**
-- base_model를 상속받아 모델을 설계합니다. 
+base_model를 상속받아 모델을 설계합니다. 
 
 ## trainer
 base_trainer를 상속받아 epoch별로 train할 세부 사항을 지정합니다.  
@@ -143,19 +143,19 @@ base_trainer를 상속받아 epoch별로 train할 세부 사항을 지정합니�
 
 ## train.py
 
-모델에 대한 학습을 진행하는 파일입니다.
+- 모델에 대한 학습을 진행하는 파일입니다.
 
 - CLI를 통해 입력받은 옵션을 config파일에 반영하고 config 파일로부터 하이퍼파라미터에 대한 모든 정보를 입력받아 학습을 시작합니다.
 
 ## test.py
 
-학습된 모델에 대한 평가를 수행하는 파일입니다. 
+- 학습된 모델에 대한 평가를 수행하는 파일입니다. 
 
 - CLI를 통해 입력받은 옵션을 config파일에 반영하고 config 파일로부터 하이퍼파라미터에 대한 모든 정보를 입력받아 평가를 진행합니다.
 
 
 ## Conclusion
-Pytorch Template을 분석하면서 단번에 이해하기는 힘들었지만 프로젝트 구조가 전반적으로 어떻게 구성되있는지 파악할 수 있었습니다. 앞으로는 딥러닝 프로젝트 github 저장소를 보더라도 너무 당황하지 않고 차분하게 코드를 살펴볼 수 있을 것 같습니다. Template을 좀 더 깊게 이해하기 위해 생소한 모듈이나 객체 지향 프로그래밍 개념에 대해 공부해볼 계획입니다. 그리고 아직 로컬에 GPU가 없지만(ㅠ) 프로젝트를 template에 맞게 구성하는 습관도 들이고자 합니다. 
+&nbsp;&nbsp;&nbsp;&nbsp;**Pytorch Template**을 분석하면서 단번에 이해하기는 힘들었지만 프로젝트 구조가 전반적으로 어떻게 구성되있는지 파악할 수 있었습니다. 앞으로는 딥러닝 프로젝트 github 저장소를 보더라도 너무 당황하지 않고 차분하게 코드를 살펴볼 수 있을 것 같습니다. Template을 좀 더 깊게 이해하기 위해 생소한 모듈이나 객체 지향 프로그래밍 개념에 대해 공부해볼 계획입니다. 그리고 아직 로컬에 GPU가 없지만(ㅠ) 프로젝트를 template에 맞게 구성하는 습관도 들이고자 합니다. 
 
 ## Reference
 [Pytorch Template](https://github.com/victoresque/pytorch-template)  

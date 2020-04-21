@@ -8,24 +8,24 @@ comments: true
 use_math : true
 ---
 
-Pytorch 기초에 대한 공부를 마치고 MNIST나 CIFAR10 데이터셋처럼 정제된 데이터셋이 아닌 실제 데이터를 기반으로 classifier를 만들어보기로 결심하였습니다. 적절한 데이터셋을 찾던 중 Kaggle에 올라온 LEGO 이미지 데이터셋이 적절하다고 생각했고 이를 기반으로 LEGO를 종류별로 분류하는 image classifier를 만들어보았습니다. 
+&nbsp;&nbsp;&nbsp;&nbsp;Pytorch 기초에 대한 공부를 마치고 MNIST나 CIFAR10 데이터셋처럼 정제된 데이터셋이 아닌 실제 데이터를 기반으로 classifier를 만들어보기로 결심하였습니다. 적절한 데이터셋을 찾던 중 Kaggle에 올라온 LEGO 이미지 데이터셋이 적절하다고 생각했고 이를 기반으로 **LEGO를 종류별로 분류하는 image classifier**를 만들어보았습니다. 
 
-1) 데이터셋 다운로드
-2) 학습, 시험 데이터셋 분리
-3) 데이터셋 로드하기
-4) 시각화하기
-5) 모델 생성하기
-6) 학습 및 평가
+1) 데이터셋 다운로드  
+2) 학습, 시험 데이터셋 분리  
+3) 데이터셋 로드하기  
+4) 시각화하기  
+5) 모델 생성하기  
+6) 학습 및 평가  
 
 #### 1) 데이터셋 다운로드 
 
-본 프로젝트는 Kaggle에 올라온 [Images of LEGO Bricks](https://www.kaggle.com/joosthazelzet/lego-brick-images) 데이터를 사용하였습니다. 해당 데이터셋은 50종의 LEGO에 대한 총 4만장의 이미지를 가지고 있습니다. google colab에서 해당 데이터셋을 다음과 같은 코드를 통해 다운받았습니다.
+&nbsp;&nbsp;&nbsp;&nbsp;본 프로젝트는 Kaggle에 올라온 [Images of LEGO Bricks](https://www.kaggle.com/joosthazelzet/lego-brick-images) 데이터를 사용하였습니다. 해당 데이터셋은 50종의 LEGO에 대한 총 4만장의 이미지를 가지고 있습니다. google colab에서 해당 데이터셋을 다음과 같은 코드를 통해 다운받았습니다.
 
 ```python
 from google.colab import files
 
 ! pip install -q kaggle
-files.upload()
+! files.upload()
 ! mkdir ~/.kaggle
 ! cp kaggle.json ~/.kaggle/
 ! chmod 600 ~/.kaggle/kaggle.json
@@ -35,11 +35,13 @@ files.upload()
 !unzip lego-brick-images.zip
 ```
 - 다음과 같은 과정을 통해 데이터를 로컬에 저장한 후 압축하고 다시 구글 드라이브에 올려주고 압축을 해제하는 번거로운 과정없이 쉽게 데이터셋을 다운받을 수 있었습니다! 상세한 과정은 [캐글과 구글 Colab 연결해주기!](캐글과 구글 Colab 연결해주기!) 블로그를 참고하였습니다. 
+
 - (참고로 데이터셋 zip 파일을 파이썬의 zipfile로 압축 해제하면 상당히 많은 시간이 소요됩니다... 쉘로 압축 해제하는 것을 권장합니다)
 
 #### 2) 학습, 시험 데이터셋 분리(train-test split)
 
 데이터셋의 압축을 풀면 다운받은 디렉터리의 구조는 다음과 같습니다. 
+
 ```bash
 |-Collada models
 |-LEGO brick images v1
@@ -91,7 +93,9 @@ for path in [train_path, test_path]:
       pass
 ```
 - 위와 같은 과정을 거쳐 데이터셋을 train,test 별로 분리하고 레이블별로 이미지를 분류하여 저장하였습니다. 총 4만장의 데이터를 학습 데이터 32000장, 시험 데이터 8000장으로 분리하였습니다. 
+
 ![Cap 2020-03-09 17-19-59-460](https://user-images.githubusercontent.com/35513025/76194797-4260a580-622a-11ea-9af3-a2eea75d26ea.png)
+
 - 저는 학습의 편의성을 고려하여 10종('3001 brick 2x4', '3002 brick 2x3', '3003 brick 2x2', '3004 brick 1x2', '3005 brick 1x1', '3010 brick 1x4', '3020 plate 2x4', '3021 plate 2x3', '3022 Plate 2x2', '3023 Plate 1x2')의 LEGO에 대해서만 학습을 진행하였습니다. 학습 데이터는 6400장, 시험 데이터는 1600장을 사용하였습니다.
 
 #### 3) 데이터셋 로드하기(load dataset)
@@ -110,6 +114,7 @@ for path in [train_path, test_path]:
 ...
 ```
 - torchvision의 transforms 모듈을 통해 학습 이미지에 대한 정규화와 augmentation을 진행할 수 있습니다. ***주의할 점은 정규화(Normalization)을 진행할 때 전체 데이터셋에 대해 RGB 값별로 평균과 분산을 미리 계산해줘야 합니다.*** 저는 이 점을 간과하고 일괄적으로 0.5로 평균과 분산을 맞춰 loss가 줄어들지 않는 문제에 마주하였습니다;(무엇이 문제인지 모르고 한참 삽질을 한 후 정규화 문제라는 것을 알게 되었습니다ㅜ)
+
 - 데이터셋의 RGB별 평균과 분산은 다음과 같은 코드를 통해 구할 수 있습니다. 
 
 ```python
@@ -144,7 +149,7 @@ pop_std0 = np.array(pop_std0).mean(axis=0) # RGB값의 분산
 pop_std1 = np.array(pop_std1).mean(axis=0) # 자유도가 1인 RGB값의 분산
 ```
 
-해당 코드는 [Image normalization in Pytorch](https://forums.fast.ai/t/image-normalization-in-pytorch/7534/7)를 참고하였습니다. 위의 과정을 거쳐 RGB 별로 평균과 분산값을 얻게 되었고 이를 기반으로 데이터셋을 load했습니다. 이번 삽질을 통해 input data 정규화가 얼마나 중요한지 알게 되었습니다..
+&nbsp;&nbsp;&nbsp;&nbsp;해당 코드는 [Image normalization in Pytorch](https://forums.fast.ai/t/image-normalization-in-pytorch/7534/7)를 참고하였습니다. 위의 과정을 거쳐 RGB 별로 평균과 분산값을 얻게 되었고 이를 기반으로 데이터셋을 load했습니다. 이번 삽질을 통해 input data 정규화가 얼마나 중요한지 알게 되었습니다..
 
 ```python
 import torch
@@ -189,7 +194,10 @@ test_loader = torch.utils.data.DataLoader(
 
 사용할 데이터를 torch.utils의 make_grid 메서드를 통해 확인해보았습니다. 배치 사이즈를 64로 설정하여 총 64개의 이미지들이 정규화된 결과를 확인할 수 있습니다. 
 
-![다운로드 (1)](https://user-images.githubusercontent.com/35513025/76199153-ad15df00-6232-11ea-9f88-8c01aac3ae6a.png)
+<p align='center'>
+![76199153-ad15df00-6232-11ea-9f88-8c01aac3ae6a (Custom)](https://user-images.githubusercontent.com/35513025/79832919-61d01e00-83e5-11ea-8354-e6e958e8ebbe.png)
+</p>
+
 
 
 #### 5) 모델 생성하기
