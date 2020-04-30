@@ -194,10 +194,7 @@ test_loader = torch.utils.data.DataLoader(
 
 사용할 데이터를 torch.utils의 make_grid 메서드를 통해 확인해보았습니다. 배치 사이즈를 64로 설정하여 총 64개의 이미지들이 정규화된 결과를 확인할 수 있습니다. 
 
-<p align='center'>
 ![76199153-ad15df00-6232-11ea-9f88-8c01aac3ae6a (Custom)](https://user-images.githubusercontent.com/35513025/79832919-61d01e00-83e5-11ea-8354-e6e958e8ebbe.png)
-</p>
-
 
 
 #### 5) 모델 생성하기

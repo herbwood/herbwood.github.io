@@ -63,15 +63,19 @@ data_loader, model, trainer의 **추상 클래스** 모듈입니다. 추상 클�
 
 **data_loader.py**
 - 디렉터리로부터 데이터셋을 불러오는 기능을 제공합니다. 
+
 - train, validation 데이터셋을 생성자를 통해 입력받은 비율에 따라 분리하는 기능도 제공합니다.   
 
 **model.py** 
 - 모델의 forward 메서드를 abstractmethod로 지정하여 상속받는 클래스에 세부 사항을 필수적으로 기재하도록 지정하였습니다.
+
 -  문자열 메서드를 통해 학습 가능한 파라미터의 수를 출력하도록 하였습니다.  
 
 **trainer.py`**  
 - 생성자로 logger, 사용할 gpu 수, loss function, metric, optimizer, epoch, save_period, early stopping 여부, tensorboard 사용 여부 등을 지정했습니다.
+
 - epoch별로 실행할 train 메서드는 추상화메서드(@abstractmethod)로 지정했습니다.
+
 - 전체 train과정에서 epoch별로 loss, accuracy 등을 출력하도록 하고, checkpoint에 저장했습니다. 또한 학습이 중단되는 것에 대한 대책으로 마지막 checkpoint로부터 필요한 값을 불러들이는 resum checkpoint 메서드를 제공합니다. 또한 가장 높은 정확도를 보인 epoch의 값들을 저장합니다.   
 
 (epoch 한 차례가 끝나면 다음과 같은 값을 출력됩니다)  
@@ -82,40 +86,35 @@ data_loader, model, trainer의 **추상 클래스** 모듈입니다. 추상 클�
 ## data_loader  
 base_data_loder를 상속받아 실제 데이터를 load하는 모듈입니다.  
 
-**data_loader.py** 
-데이터가 저장된 디렉터리, batch size 등을 지정하고 torchvision 메서드인 transform을 통해 data augmentation을 진행할 수 있습니다.   
+**data_loader.py** : 데이터가 저장된 디렉터리, batch size 등을 지정하고 torchvision 메서드인 transform을 통해 data augmentation을 진행할 수 있습니다.   
 
 
 ## logger  
 logging과 tensorboard 시각화를 위한 기능을 제공하는 모듈입니다.  
 
-**logger_config.json**
-logger에 대한 정보가 저장된 json 파일입니다.   
+**logger_config.json** : logger에 대한 정보가 저장된 json 파일입니다.   
 
-**logger.py**
-logger_config.json에 저장된 logger에 대한 정보를 읽어들여 load시킵니다.   
+**logger.py** : logger_config.json에 저장된 logger에 대한 정보를 읽어들여 load시킵니다.   
 
-**visualization.py**
-tensorboard를 통해 train 결과를 시각화하는 기능을 제공합니다. 
+**visualization.py** : tensorboard를 통해 train 결과를 시각화하는 기능을 제공합니다. 
 
 ## model  
 train, evaluation 시 필요한 loss function, metric, model을 지정하는 모듈입니다.  
 
-**loss.py**
-torch.nn.functional에서 제공하는 메서드를 사용하거나 custom한 loss function을 지정할 수도 있습니다. 
+**loss.py** : torch.nn.functional에서 제공하는 메서드를 사용하거나 custom한 loss function을 지정할 수도 있습니다. 
 
-**metric.py** 
-모델 성능 평가 시 사용할 metric을 지정합니다. 본 template에서는 accuracy와 top_k_acc를 metric으로 설정했습니다. 
+**metric.py** : 모델 성능 평가 시 사용할 metric을 지정합니다. 본 template에서는 accuracy와 top_k_acc를 metric으로 설정했습니다. 
 
-**model.py**
-base_model를 상속받아 모델을 설계합니다. 
+**model.py** : base_model를 상속받아 모델을 설계합니다. 
 
 ## trainer
 base_trainer를 상속받아 epoch별로 train할 세부 사항을 지정합니다.  
 
 **trainer.py** 
 - 생성자로 학습할 데이터셋, model, loss function, metrics, optimizer 등을 지정합니다
+
 - epoch별로 학습할 방법을 지정하고 학습 현황을 logger를 통해 출력하고 log 파일을 업데이트 합니다
+
 - validation 시 epoch별로 수행할 메서드를 지정합니다
 
 (학습 시 logger를 통해 다음과 같이 학습 현황이 출력됩니다)
@@ -127,7 +126,9 @@ base_trainer를 상속받아 epoch별로 train할 세부 사항을 지정합니�
 
 **util.py**
 - json 파일을 읽고 쓰는 기능을 제공합니다
+
 - data loader를 반복자 형태로 반환하는 기능을 제공합니다
+
 - MetricTracker 클래스를 통해 pandas 데이터프레임에 현재까지의 loss를 기록합니다
 
 - data loader에 대한 정보(디렉터리명, batch size, validation split 등), optimizer(learning rate, weight decay 등), loss, metric 등 하이퍼  파라미터에 대한 정보를 가지고 있는 json 파일
@@ -137,6 +138,7 @@ base_trainer를 상속받아 epoch별로 train할 세부 사항을 지정합니�
 하이퍼파라미터가 저장돈 config.json 파일을 파싱하고 CLI(Command Line Interface)옵션을 처리하기 위한 클래스입니다.  
 
 - CLI를 통해 입력받은 값에 따라 config 정보를 업데이트 시킵니다. 이를 구현하기 위해 @classmethod를 활용합니다.
+
 - logger에 대한 옵션을 초기화시킵니다.
 
 *생소한 모듈들이 많이 등장해 분석하기가 어려웠습니다. 프로젝트를 직접 구성하면서 좀 더 깊게 파볼 계획입니다...*
