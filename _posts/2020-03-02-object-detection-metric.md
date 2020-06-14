@@ -11,8 +11,8 @@ use_math : true
 최근 컴퓨터 비전 분야에서는 이미지를 분류하는 것을 넘어 이미지의 객체를 탐지하는 Object detection에 대한 연구가 활발히 진행되고 있습니다. Object detection은 자율 주행차, 얼굴 및 보행자 검출, 영상 복구 등 다양한 분야에서 활용되고 있습니다. 저도 Object detection에 관심을 가져 관련 논문을 읽어보고자 했으나, 이미지 분류 분야와는 다른 문제 정의, 해결 방법, 그리고 평가 방식의 차이를 이해하지 못해 좌절했습니다... 그래서 관련 논문을 본격적으로 살펴보기에 앞서 Object detection의 정의와 평가 방법 등에 대해 공부한 내용을 정리해보았습니다. 
 
 ## Object detection
+<p align='center'><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fbv7d1Q%2FbtqufcdcRRK%2F6D21FiAhjEKGKSqbTx1aE1%2Fimg.png" width="500" height="200"></p>
 
-![object detection](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fbv7d1Q%2FbtqufcdcRRK%2F6D21FiAhjEKGKSqbTx1aE1%2Fimg.png)
 <p align="center">[그림 1] Object detection</p>
 
 딥러닝을 활용한 컴퓨터 비전 영역의 문제는 객체의 수와 위치 판별 범위에 따라 달라집니다.  Image Classification은 이미지 내 단일 객체에 대해 label을 분류하는 작업입니다. 반면  **Object Detection**은 2개 이상의 객체에 대한 위치를 찾고(localize), 객체에 대한 label을 분류하는 작업입니다. 즉 Object detection은 다음과 같이 표현할 수 있습니다. 
@@ -25,10 +25,9 @@ use_math : true
 다음으로 object detection이 잘 이뤄졌는지 수치적으로 파악할 수 있는 평가 지표에 대해 살펴보도록 하겠습니다. 현재 많은 Object detection 논문에서는 **mAP(means Average Precision)**를 주요 평가 지표로 활용하고 있습니다. 먼저 mAP에 대해 파악하기 전에 알아둬야 할 개념들부터 살펴보도록 하겠습니다. 
 
 ### 1. IoU(Intersection over Union)
-
-<p align="center">![iou equation](https://camo.githubusercontent.com/1f5a5a29fd1d77bdd6c50f1dc422263d1a304b57/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f25354374657874253742494f552537442533442535436672616325374225354374657874253742617265612537442535436c656674253238425f25374270253744253230253543636170253230425f2537426774253744253230253543726967687425323925374425374225354374657874253742617265612537442535436c656674253238425f25374270253744253230253543637570253230425f25374267742537442532302535437269676874253239253744)</p>
-<p align="center">![iou image](https://github.com/rafaelpadilla/Object-Detection-Metrics/raw/master/aux_images/iou.png)</p>
-<p align="center">[그림 2] IoU의 수식과 도식</p>
+<p align='center'><img src="https://hoya012.github.io/assets/im
+g/object_detection_fourth/fig1.PNG" width="300" height="300"></p>
+<p align="center">[그림 2] IoU(Intersection over Union) </p>
 
 **IoU(Intersection over Union)**는 객체의 위치 추정의 정확도를 평가하는 지표입니다. 실제 bounding box를 B_gt(ground truth)라고 하고, 예측한 bounding box를 B_p(predicted)라고 할 때 두 box가 겹치는 영역의 크기를 통해 평가하는 방식입니다. IoU는 0과 1 사이의 값을 가지며 Precision과 Recall 값을 결정하는데 임계값으로 사용됩니다. 
 
@@ -49,8 +48,8 @@ use_math : true
 - 위의 이미지에는 없지만 detect 되어야 했지만 그렇지 못한 경우는 **FN(False Negative)**에 해당합니다. 
 
 지금까지 살펴본 TP, FP, FN를 조합하여 Precision과 Recall이라는 분류 성능 지표를 도출할 수 있습니다. 
-<p align="center">![precision](https://camo.githubusercontent.com/7ce36f4e4fb2be6567a0c9ae9ab4f1d1b1e71288/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f25354374657874253742507265636973696f6e253744253230253344253230253543667261632537422535437465787425374254502537442537442537422535437465787425374254502537442b2535437465787425374246502537442537442533442535436672616325374225354374657874253742545025374425374425374225354374657874253742616c6c253230646574656374696f6e73253744253744)</p>
-<p align='center'>![recall](https://camo.githubusercontent.com/ab16d220dae5b58815a6db9f0305c9e6b1c733fc/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f25354374657874253742526563616c6c253744253230253344253230253543667261632537422535437465787425374254502537442537442537422535437465787425374254502537442b25354374657874253742464e2537442537442533442535436672616325374225354374657874253742545025374425374425374225354374657874253742616c6c25323067726f756e64253230747275746873253744253744)</p>
+<p align='center'><img src="https://ifh.cc/g/iviGHl.jpg" width="300" height="150"></p>
+
 <p align='center'>[그림 4] Precision과 Recall</p>
 
 **Precision(정밀도)**은 전체 detect한 경우의 수 중 실제로 올바르게 detect한 비율을 의미합니다. **Recall(재현율)**은 이미지 내 객체의 수와 올바르게 detect한 비율입니다. 
@@ -77,8 +76,7 @@ Precision이 높아지면 Recall이 낮아지고, Recall이 높아지면 Precisi
 (b) 과정 (a)에서 구한 도표를 confidence score에 따라 내림차순을 정렬합니다. 그리고 이전 열에 존재했던 TP와 FP의 수를 구해 누적(Accumulated) TP, FP 값을 구합니다. 이를 통해 bounding box별로 Precision과 Recall도 구할 수 있습니다. 
 
 (c) 과정 (b)에서 구한 bounding box별 Precision, Recall 값을 그래프에 나타냅니다. 이 그래프를 통해 Recall값에 따라 변화하는 Precision 값을 확인할 수 있습니다.
-
-![final graph](https://github.com/rafaelpadilla/Object-Detection-Metrics/blob/master/aux_images/interpolated_precision_v2.png?raw=true)
+<p align='center'><img src="https://github.com/rafaelpadilla/Object-Detection-Metrics/blob/master/aux_images/interpolated_precision_v2.png?raw=true" width="400" height="300"></p>
 <p align='center'>[그림 8] PR곡선을 통해 AP 값을 구함</p>
 
 마지막으로 계산의 편의를 위해 PR 곡선을 위와 같이 계단처럼 변형시켜줍니다. PR 곡선 아래의 면적이 AP값이며 개별 객체에 대한 Object detection 알고리즘의 성능을 의미합니다. 
@@ -87,6 +85,7 @@ Precision이 높아지면 Recall이 낮아지고, Recall이 높아지면 Precisi
 ### 4. mAP(mean Average Precision)
 
 ![map](https://ifh.cc/g/ULMZ3t.jpg)
+
 <p align='center'>[그림 9] RCNN 논문에서 발췌한 mAP, AP metric 도표 </p>
 
 AP가 여러 PR 곡선을 결과를 종합한 것과 유사하게 mAP(mean Average Precision)는 개별 객체에 대한 AP 값을 종합한 값입니다. 이름에서 알 수 있듯이 mAP는 Object detection시 검출한 객체별 AP 값의 평균입니다. 위의 도표는 bike, bird 등등 개별 객체에 대한 AP 값과 그 평균인 mAP 값을 보여주고 있습니다. 
