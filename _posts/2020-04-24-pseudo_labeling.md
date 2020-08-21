@@ -17,7 +17,7 @@ use_math : true
 
 **Pseudo labeling** 은 적은 수의 labeled 데이터와 많은 수의 labeled 되지 않은 데이터를 활용하여 모델의 성능을 향상시키는 방법입니다.  unlabeld data를 사용할 때 모델이 더 많은 케이스의 데이터를 고려하기 때문에 overfitting에 강건해집니다.  Kaggle competition에서는 public ranking에 비해 private ranking이 크게 떨어지는 **shakeup**을 방지하는 데 좋은 방법으로 사용될 수 있습니다.  
   
-  ## How?
+## How?
 
 ### Training Process
 pseudo labeling을 시행하는 방법은 다음과 같습니다. 
