@@ -45,20 +45,18 @@ EAR값이 상대적으로 긴 시간동안 낮은 값을 유지하는 것은 눈
 
 앞서 살펴보았듯이 눈 깜빡임을 감지하기 위해 안구의 랜드마크를 사용하다보니 face landmark detector 자체의 성능이 상당히 중요합니다. 논문의 저자는 **Chehra**와 **Intraface**라는 최신 landmark detector을 비교하여 landmark detector의 정확도를 측정합니다. 정확도를 위해 사용한 loss 함수는 다음과 같습니다.
 
-$$\eta={100 \over kN} \sum_{k=i}^N ||x_i - 
-\hat{x_{i}}||$$
+$$\eta={100 \over kN} \sum_{k=i}^N ||x_i - \hat{x_{i}}||$$
 
 위의 수식에서 $x_i$는 랜드마크의 실제 위치(ground-truth location)이며, $\hat{x_{i}}$은 detector에 의해 예측된 랜드마크입니다. loss function은 두 랜드마크 사이의 Euclidean distance를 구한 것이라고 볼 수 있습니다. 논문의 저자는 위의 loss function을 **IOD(Inter-Ocular Distance)** 라고 부릅니다. 
 
-<p align="center"><img src="https://ifh.cc/g/MeGBEM.png" width=400"/></p><p align="center">[그림 3] Chehra vs Intraface 성능 비교</p>
+<p align="center"><img src="https://ifh.cc/g/MeGBEM.png" width="400px"></p><p align="center">[그림 3] Chehra vs Intraface 성능 비교</p>
 
 얼굴 전체의 랜드마크를 검출하는 경우, Chehra가 더 적은 에러를 보였으나, 안구 부분의 12개의 랜드마크만을 검출하는 경우 Intraface가 항상 더 좋은 성능을 보였습니다. 논문의 저자는 Intraface가 Chehra보다 작은 이미지에 보다 강건한 모습을 보인다고 합니다. 
 
 
 ### Eye blink detector evaluation
 
-<p align="center"><img src="https://ifh.cc/g/CYvkdP.jpg
-" width=300"/></p><p align="center">[그림 4] Eye blink detector 성능 비교</p>
+<p align="center"><img src="https://ifh.cc/g/CYvkdP.jpg" width="300px"></p><p align="center">[그림 4] Eye blink detector 성능 비교</p>
 
 논문에서 제시안 방식은 기존 eye blink detector보다 월등한 성능을 보인다고 합니다. 그리고 EAR 수치에 threshold를 두고 눈 깜빡임 여부를 감지하는 방식(예를 들어 threshold=0.2라고 했을 때 0.2 이하일 때 눈 감은 상태로 판별하는 방식)과 비교했을 때 여전히 **EAR SVM**이 더 좋은 성능을 보였다고 합니다. 위의 그림에서 가장 위의 그래프는 시간에 따른 EAR 수치의 변화를 나타냅니다. EAR 수치가 낮아졌을 때 blink로 ground truth가 나타나는 모습을 확인할 수 있습니다. 그리고 EAR SVM이 ground truth와 상당히 유사한 결과를 보입니다. 
 
