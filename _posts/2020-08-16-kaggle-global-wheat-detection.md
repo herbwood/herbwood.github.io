@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title:  "[Project] Kaggle Global Wheat Detection Competition"
 subtitle:   "global wheat detection"
@@ -54,7 +54,7 @@ global-wheat-detection/
 |-- train.csv  // 학습용 이미지 메타 데이터
 |	
 ```
-<p align="center"><img src="http://t2m.kr/D5KbM" width="600px	"></p><p align="center">[그림 1] 데이터셋 시각화</p>
+<p align="center"><img src="https://ifh.cc/g/vf0H3w.png" width="600px"></p><p align="center">[그림 1] 데이터셋 시각화</p>
 
 train.csv에 저장된 image_id에 해당하는 이미지 파일을 train 디렉터리에서 찾고, bounding box의 x, y 좌표, width, height가 csv 파일 형식으로 저장되어 있습니다. ng box 좌표를 그려 시각화하는 것이 가능합니다. 학습용 이미지를 임의로 추출하고 bounding box를 그려 시각화한 결과는 위와 같습니다. sub title은 train.csv에서 읽어온 image_id입니다. 각 이미지의 크기는 1024 x 1024 입니다. 
 
